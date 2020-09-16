@@ -8,37 +8,37 @@
 
 enum custom_keycodes {
     BASE = SAFE_RANGE,
-    CMD,     // like ctrl or alt
-    SYMB,    // symbol
-    FN,      // fn
-    KANA,    // kana or 
+    CMD,      // like ctrl or alt
+    SYMB,     // symbol
+    FN,       // fn
+    KANA,     // kana or 
     ALT_TAB,  // alttab
-    Z_ALT,
-    Z_TAB,
+    Z_ALT,    // for custom alttab
+    Z_TAB,    // for custom alttab
 };
 
-#define CTL_TAB LCTL(KC_TAB)        // R_Shift and shift + F23
+#define CTL_TAB LCTL(KC_TAB)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* Keymap 0: Basic layer
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
- * |   =    |   1  |   2  |   3  |   4  |   5  | LEFT |           | RIGHT|   6  |   7  |   8  |   9  |   0  |   -    |
+ * |   `(~)  |   1  |   2  |   3  |   4  |   5  |  6  |           |   6  |   7  |   8  |   9  |   0  |   -   |    =  |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Del    |   Q  |   W  |   E  |   R  |   T  |  L1  |           |  L1  |   Y  |   U  |   I  |   O  |   P  |   \    |
+ * | TAB    |   Q  |   W  |   E  |   R  |   T  |   Y  |           |  T   |   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * | BkSp   |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |; / L2|' / Cmd |
- * |--------+------+------+------+------+------| Hyper|           | Meh  |------+------+------+------+------+--------|
- * | LShift |Z/Ctrl|   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |//Ctrl| RShift |
+ * | LCtrl  |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |  ;   |   '    |
+ * |--------+------+------+------+------+------|  H   |           |  B   |------+------+------+------+------+--------|
+ * | LShift |  Z   |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |  /   | RShift |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
- *   |Grv/L1|  '"  |AltShf| Left | Right|                                       |  Up  | Down |   [  |   ]  | ~L1  |
+ *   | _FN  | LAlt | LWin| LAlt | _CMD  |                                       | KANA |  [   |   ]  | RWin | _FN   |
  *   `----------------------------------'                                       `----------------------------------'
- *                                        ,-------------.       ,-------------.
- *                                        | App  | LGui |       | Alt  |Ctrl/Esc|
+ *                                        ,-------------.       ,---------------.
+ *                                        | Esc  | Del  |       | PSCR  |  _FN  |
  *                                 ,------|------|------|       |------+--------+------.
- *                                 |      |      | Home |       | PgUp |        |      |
- *                                 | Space|Backsp|------|       |------|  Tab   |Enter |
- *                                 |      |ace   | End  |       | PgDn |        |      |
+ *                                 |      |      |Enter |       | Esc  |        |Enter |
+ *                                 | Space|LShift|------|       |------| RCtrl  |   &  |
+ *                                 |      |      | BS   |       | Del  |        | _SYMB|
  *                                 `--------------------'       `----------------------'
  */
 [_BASE] = LAYOUT_ergodox_pretty(
@@ -47,8 +47,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   Z_TAB,    KC_Q,      KC_W,    KC_E,     KC_R,    KC_T,    KC_Y,       KC_T,      KC_Y,    KC_U,    KC_I,    KC_O,     KC_P,      KC_BSLS,
   KC_LCTL,  KC_A,      KC_S,    KC_D,     KC_F,    KC_G,                           KC_H,    KC_J,    KC_K,    KC_L,     KC_SCLN,   KC_QUOT,
   KC_LSFT,  KC_Z,      KC_X,    KC_C,     KC_V,    KC_B,    KC_H,       KC_B,      KC_N,    KC_M,    KC_COMM, KC_DOT,   KC_SLSH,   KC_RSFT,
-  FN,       Z_ALT,     KC_LGUI, Z_ALT,    CMD,                                     KANA,    KC_LBRC, KC_RBRC,  KC_RGUI,   FN,
-                                                  KC_ESC, KC_DEL,       KC_LALT, TG(3),
+  FN,       Z_ALT,     KC_LGUI, Z_ALT,    CMD,                                              KANA,    KC_LBRC, KC_RBRC,  KC_RGUI,   FN,
+                                                  KC_ESC, KC_DEL,       KC_PSCR,   TG(3),
                                                           KC_ENT,       KC_ESC,
                                         KC_SPC, KC_LSFT, KC_BSPC,       KC_DEL, KC_RCTL, SYMB
 ),
@@ -57,14 +57,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_CMD] = LAYOUT_ergodox_pretty(
   // left hand
-  LALT(KC_GRV),  S(KC_CAPS),      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,         KC_F6,      KC_F7,      KC_F8,      KC_F9,     KC_F10,     KC_F11,     KC_F12, 
+  LALT(KC_GRV),  S(KC_CAPS),  KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,         KC_F6,      KC_F7,      KC_F8,      KC_F9,     KC_F10,     KC_F11,     KC_F12, 
   ALT_TAB,       LALT(KC_F4), LCTL(KC_W), LCTL(KC_E), LCTL(KC_R), LCTL(KC_T), LCTL(KC_Y),    LCTL(KC_T), LCTL(KC_Y), LCTL(KC_U), KC_ESC,    LCTL(KC_O), LCTL(KC_P), _______,
   _______,       LCTL(KC_A),  LCTL(KC_S), LCTL(KC_D), LCTL(KC_F), LCTL(KC_G),                            KC_LEFT,    KC_DOWN,    KC_UP,     KC_RGHT,    KC_BSPC,    KC_DEL,
   _______,       LCTL(KC_Z),  LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), LCTL(KC_B), LCTL(KC_H),    LCTL(KC_B), LCTL(KC_N), KC_ENT,     KC_HOME,   KC_END,     KC_CAPS,    _______,
   _______,       _______,     _______,    _______,    _______,                                                      _______,    LCTL(KC_LBRC),    LCTL(KC_RBRC),    _______,    _______,
-                                                                _______,    _______,       _______, _______,
-                                                                            _______,       _______,
-                                                       _______, _______,    _______,       _______, _______, S(KC_CAPS)
+                                                                  _______,    _______,       _______, _______,
+                                                                              _______,       _______,
+                                                         _______, _______,    _______,       _______, _______, S(KC_CAPS)
 ),
 /* 
  * Keymap 2: Enter and shift keys
@@ -73,12 +73,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // left hand
   S(KC_BSLS),  S(KC_1),     S(KC_2),    S(KC_3),    S(KC_4),     S(KC_5),     S(KC_6),      S(KC_6),  S(KC_7),      S(KC_8),   S(KC_9),    S(KC_0),    S(KC_MINS),  S(KC_EQL), 
   _______,     S(KC_QUOT),  S(KC_LBRC), S(KC_RBRC), S(KC_4),     S(KC_5),     S(KC_6),      S(KC_5),  S(KC_6),      S(KC_U),    KC_ESC,    S(KC_O),    S(KC_P),     _______,
-  _______,     S(KC_A),     S(KC_9),    S(KC_0),    KC_EQL,      S(KC_EQL),                           S(KC_GRV),    KC_DOWN,    KC_UP,     KC_RGHT,    KC_BSPC,    KC_DEL,
-  _______,     S(KC_SCLN),  KC_LBRC,    KC_RBRC,    S(KC_MINS),  S(KC_BSLS),  S(KC_GRV),    S(KC_B),  S(KC_N),      KC_ENT,     KC_HOME,   KC_END,     KC_CAPS,    _______,
-  _______,     _______,     _______,    _______,    _______,                                                      _______,    _______,    _______,    _______,    _______,
-                                                                 _______,    _______,       _______, _______,
-                                                                             _______,       _______,
-                                                        _______, _______,    _______,       _______, _______, _______
+  _______,     S(KC_A),     S(KC_9),    S(KC_0),    KC_EQL,      S(KC_EQL),                           S(KC_GRV),    KC_DOWN,    KC_UP,     KC_RGHT,    KC_BSPC,     KC_DEL,
+  _______,     S(KC_SCLN),  KC_LBRC,    KC_RBRC,    S(KC_MINS),  S(KC_BSLS),  S(KC_GRV),    S(KC_B),  S(KC_N),      KC_ENT,     KC_HOME,   KC_END,     KC_CAPS,     _______,
+  _______,     _______,     _______,    _______,    _______,                                                        _______,    _______,   _______,    _______,     _______,
+                                                                 _______,     _______,      _______, _______,
+                                                                              _______,      _______,
+                                                        _______, _______,     _______,      _______, _______, _______
 ),
 /* 
  * Keymap 3: Symbol Layer
@@ -89,10 +89,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   LCTL(KC_TAB),  LALT(KC_F4), LCTL(KC_W), KC_UP,   S(KC_4), S(KC_5), S(KC_6),           S(KC_6),       S(KC_7),    S(KC_8), S(KC_9), S(KC_0), KC_LBRC, KC_RBRC,
   _______,       KC_HOME,     KC_LEFT,    KC_DOWN, KC_RGHT, KC_GRV,                                    KC_LEFT,    KC_DOWN, KC_UP,   KC_RGHT, KC_BSPC, KC_APP,
   _______,       LCTL(KC_Z),  LCTL(KC_X), LCTL(KC_INS), S(KC_INS), KC_TILD, KC_LEFT,    LCTL(KC_LEFT), LCTL(KC_N), KC_ENT,  KC_HOME, KC_END,  KC_CAPS, _______,
-  _______,       _______, _______, _______, _______,                                                               _______, _______, _______, _______, _______,
-                                                    _______, _______,              _______, _______,
-                                                             _______,              RESET,
-                                           _______, _______, _______,              _______, _______, _______
+  _______,       _______,     _______,    _______,      _______,                                                   _______, _______, _______, _______, _______,
+                                                                   _______, _______,    _______, _______,
+                                                                            _______,    RESET,
+                                                          _______, _______, _______,    _______, _______, _______
 ),
 };
 
@@ -297,4 +297,3 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 
   return state;
 };
-

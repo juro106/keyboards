@@ -15,6 +15,8 @@ enum custom_keycodes {
     ALT_TAB,  // alttab
     Z_ALT,    // for custom alttab
     Z_TAB,    // for custom alttab
+    Z_CAPS,   // for custom caps
+    Z_ESC,    // for custom caps
 };
 
 #define CTL_TAB LCTL(KC_TAB)
@@ -58,9 +60,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_CMD] = LAYOUT_ergodox_pretty(
   // left hand
   LALT(KC_GRV),  S(KC_CAPS),  KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,         KC_F6,      KC_F7,      KC_F8,      KC_F9,     KC_F10,     KC_F11,     KC_F12, 
-  ALT_TAB,       LALT(KC_F4), LCTL(KC_W), LCTL(KC_E), LCTL(KC_R), LCTL(KC_T), LCTL(KC_Y),    LCTL(KC_T), LCTL(KC_Y), LCTL(KC_U), KC_ESC,    LCTL(KC_O), LCTL(KC_P), _______,
+  ALT_TAB,       LALT(KC_F4), LCTL(KC_W), LCTL(KC_E), LCTL(KC_R), LCTL(KC_T), LCTL(KC_Y),    LCTL(KC_T), LCTL(KC_Y), LCTL(KC_U), Z_ESC,     LCTL(KC_O), LCTL(KC_P), _______,
   _______,       LCTL(KC_A),  LCTL(KC_S), LCTL(KC_D), LCTL(KC_F), LCTL(KC_G),                            KC_LEFT,    KC_DOWN,    KC_UP,     KC_RGHT,    KC_BSPC,    KC_DEL,
-  _______,       LCTL(KC_Z),  LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), LCTL(KC_B), LCTL(KC_H),    LCTL(KC_B), LCTL(KC_N), KC_ENT,     KC_HOME,   KC_END,     KC_CAPS,    _______,
+  _______,       LCTL(KC_Z),  LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), LCTL(KC_B), LCTL(KC_H),    LCTL(KC_B), LCTL(KC_N), KC_ENT,     KC_HOME,   KC_END,     Z_CAPS,     _______,
   _______,       _______,     _______,    _______,    _______,                                                      _______,    LCTL(KC_LBRC),    LCTL(KC_RBRC),    _______,    _______,
                                                                   _______,    _______,       _______, _______,
                                                                               _______,       _______,
@@ -74,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   S(KC_BSLS),  S(KC_1),     S(KC_2),    S(KC_3),    S(KC_4),     S(KC_5),     S(KC_6),      S(KC_6),  S(KC_7),      S(KC_8),   S(KC_9),    S(KC_0),    S(KC_MINS),  S(KC_EQL), 
   _______,     S(KC_QUOT),  S(KC_LBRC), S(KC_RBRC), S(KC_4),     S(KC_5),     S(KC_6),      S(KC_5),  S(KC_6),      S(KC_U),    KC_ESC,    S(KC_O),    S(KC_P),     _______,
   _______,     S(KC_A),     S(KC_9),    S(KC_0),    KC_EQL,      S(KC_EQL),                           S(KC_GRV),    KC_DOWN,    KC_UP,     KC_RGHT,    KC_BSPC,     KC_DEL,
-  _______,     S(KC_SCLN),  KC_LBRC,    KC_RBRC,    S(KC_MINS),  S(KC_BSLS),  S(KC_GRV),    S(KC_B),  S(KC_N),      KC_ENT,     KC_HOME,   KC_END,     KC_CAPS,     _______,
+  _______,     S(KC_SCLN),  KC_LBRC,    KC_RBRC,    S(KC_MINS),  S(KC_BSLS),  S(KC_GRV),    S(KC_B),  S(KC_N),      KC_ENT,     KC_HOME,   KC_END,     Z_CAPS,      _______,
   _______,     _______,     _______,    _______,    _______,                                                        _______,    _______,   _______,    _______,     _______,
                                                                  _______,     _______,      _______, _______,
                                                                               _______,      _______,
@@ -85,10 +87,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_FN] = LAYOUT_ergodox_pretty(
   // left hand
-  KC_ESC,        KC_F1,       KC_F2,      KC_F3,   KC_F4,   KC_F5,   KC_F6,             KC_F6,         KC_F7,      KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12, 
+  Z_ESC,         KC_F1,       KC_F2,      KC_F3,   KC_F4,   KC_F5,   KC_F6,             KC_F6,         KC_F7,      KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12, 
   LCTL(KC_TAB),  LALT(KC_F4), LCTL(KC_W), KC_UP,   S(KC_4), S(KC_5), S(KC_6),           S(KC_6),       S(KC_7),    S(KC_8), S(KC_9), S(KC_0), KC_LBRC, KC_RBRC,
   _______,       KC_HOME,     KC_LEFT,    KC_DOWN, KC_RGHT, KC_GRV,                                    KC_LEFT,    KC_DOWN, KC_UP,   KC_RGHT, KC_BSPC, KC_APP,
-  _______,       LCTL(KC_Z),  LCTL(KC_X), LCTL(KC_INS), S(KC_INS), KC_TILD, KC_LEFT,    LCTL(KC_LEFT), LCTL(KC_N), KC_ENT,  KC_HOME, KC_END,  KC_CAPS, _______,
+  _______,       LCTL(KC_Z),  LCTL(KC_X), LCTL(KC_INS), S(KC_INS), KC_TILD, KC_LEFT,    LCTL(KC_LEFT), LCTL(KC_N), KC_ENT,  KC_HOME, KC_END,  Z_CAPS,  _______,
   _______,       _______,     _______,    _______,      _______,                                                   _______, _______, _______, _______, _______,
                                                                    _______, _______,    _______, _______,
                                                                             _______,    RESET,
@@ -96,15 +98,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 ),
 };
 
+// layer on & off
 static bool cmd_pressed = false;
 static uint16_t cmd_pressed_time = 0;
 static bool symb_pressed = false;
 static uint16_t symb_pressed_time = 0;
 static bool kana_pressed = false;
 static uint16_t kana_pressed_time = 0;
-
+// custom AltTab 
 static bool alt_pressed = false;
 static bool is_alttab_active = false;
+// capslock state control
+static bool caps_on = false;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -167,6 +172,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
             break;
+        // AltTab with CMD key 
         case ALT_TAB:
             if (record->event.pressed) {
                 is_alttab_active = true;
@@ -176,6 +182,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_TAB);
             }
             break;
+        // custom AltTab
         case Z_ALT:
             if (record->event.pressed) {
                 alt_pressed = true;
@@ -198,6 +205,29 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_code(KC_TAB);
             } else {
                 unregister_code(KC_TAB);
+            }
+            break;
+        // control capslock state
+        case Z_CAPS:
+            if (record->event.pressed) {
+                if (!caps_on) {
+                    caps_on = true;
+                }
+                register_code(KC_CAPS);
+            } else {
+                unregister_code(KC_CAPS);
+            }
+            break;
+        case Z_ESC:
+            if (record->event.pressed) {
+                if (caps_on) {
+                    caps_on = false;
+                    register_code(KC_CAPS);
+                    unregister_code(KC_CAPS);
+                }
+                register_code(KC_ESC);
+            } else {
+                unregister_code(KC_ESC);
             }
             break;
         default:

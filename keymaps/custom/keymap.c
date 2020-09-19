@@ -50,23 +50,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_LCTL,  KC_A,      KC_S,    KC_D,     KC_F,    KC_G,                           KC_H,    KC_J,    KC_K,    KC_L,     KC_SCLN,   KC_QUOT,
   KC_LSFT,  KC_Z,      KC_X,    KC_C,     KC_V,    KC_B,    KC_H,       KC_B,      KC_N,    KC_M,    KC_COMM, KC_DOT,   KC_SLSH,   KC_RSFT,
   FN,       Z_ALT,     KC_LGUI, Z_ALT,    CMD,                                              KANA,    KC_LBRC, KC_RBRC,  KC_RGUI,   FN,
-                                                  KC_ESC, KC_DEL,       KC_PSCR,   TG(3),
-                                                          KC_ENT,       KC_ESC,
-                                        KC_SPC, KC_LSFT, KC_BSPC,       KC_DEL, KC_RCTL, SYMB
+                                                 KC_ESC, KC_PSCR,       KC_PSCR,   TG(3),
+                                                          KC_DEL,       KC_ESC,
+                                        KC_SPC, KC_LSFT,  KC_ENT,       KC_DEL, KC_BSPC, SYMB
 ),
+
 /* 
  * Keymap 1: like a control key 
  */
 [_CMD] = LAYOUT_ergodox_pretty(
   // left hand
   LALT(KC_GRV),  S(KC_CAPS),  KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,         KC_F6,      KC_F7,      KC_F8,      KC_F9,     KC_F10,     KC_F11,     KC_F12, 
-  ALT_TAB,       LALT(KC_F4), LCTL(KC_W), LCTL(KC_E), LCTL(KC_R), LCTL(KC_T), LCTL(KC_Y),    LCTL(KC_T), LCTL(KC_Y), LCTL(KC_U), Z_ESC,     LCTL(KC_O), LCTL(KC_P), _______,
+  ALT_TAB,       LALT(KC_F4), LCTL(KC_W), LCTL(KC_E), LCTL(KC_R), LCTL(KC_T), LCTL(KC_Y),    LCTL(KC_T), LCTL(KC_Y), LCTL(KC_U), Z_ESC,     LCTL(KC_O), LCTL(KC_P), LCTL(KC_BSLS),
   _______,       LCTL(KC_A),  LCTL(KC_S), LCTL(KC_D), LCTL(KC_F), LCTL(KC_G),                            KC_LEFT,    KC_DOWN,    KC_UP,     KC_RGHT,    KC_BSPC,    KC_DEL,
   _______,       LCTL(KC_Z),  LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), LCTL(KC_B), LCTL(KC_H),    LCTL(KC_B), LCTL(KC_N), KC_ENT,     KC_HOME,   KC_END,     Z_CAPS,     _______,
   _______,       _______,     _______,    _______,    _______,                                                      _______,    LCTL(KC_LBRC),    LCTL(KC_RBRC),    _______,    _______,
                                                                   _______,    _______,       _______, _______,
                                                                               _______,       _______,
-                                                         _______, _______,    _______,       _______, _______, S(KC_CAPS)
+                                                         _______, _______,    _______,       _______, KC_DEL, S(KC_CAPS)
 ),
 /* 
  * Keymap 2: Enter and shift keys

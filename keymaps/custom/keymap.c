@@ -163,7 +163,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_code(KC_RSFT);
             } else {
                 unregister_code(KC_RSFT);
-
                 if (kana_pressed && (TIMER_DIFF_16(record->event.time, kana_pressed_time) < TAPPING_TERM)) {
                     register_code(KC_F23);
                     unregister_code(KC_F23);
@@ -181,6 +180,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             } else {
                 unregister_code(KC_TAB);
             }
+            return false;
             break;
         // custom AltTab
         case Z_ALT:
@@ -195,6 +195,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 }
                 unregister_code(KC_LALT);
             }
+            return false;
             break;
         case Z_TAB:
             if (record->event.pressed) {
@@ -206,17 +207,21 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             } else {
                 unregister_code(KC_TAB);
             }
+            return false;
             break;
         // control capslock state
         case Z_CAPS:
             if (record->event.pressed) {
                 if (!caps_on) {
                     caps_on = true;
+                } else if (caps_on) {
+                    caps_on = false;
                 }
                 register_code(KC_CAPS);
             } else {
                 unregister_code(KC_CAPS);
             }
+            return false;
             break;
         case Z_ESC:
             if (record->event.pressed) {
@@ -229,6 +234,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             } else {
                 unregister_code(KC_ESC);
             }
+            return false;
             break;
         default:
             if (record->event.pressed) {
@@ -241,7 +247,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     }
     return true;
 };
-
 
 // Runs just one time when the keyboard initializes.
 void keyboard_post_init_user(void) {

@@ -92,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   LCTL(KC_TAB),  LALT(KC_F4), LCTL(KC_W), KC_UP,   S(KC_4), S(KC_5), S(KC_6),           S(KC_6),       S(KC_7),    S(KC_8), S(KC_9), S(KC_0), KC_LBRC, KC_RBRC,
   _______,       KC_HOME,     KC_LEFT,    KC_DOWN, KC_RGHT, KC_GRV,                                    KC_LEFT,    KC_DOWN, KC_UP,   KC_RGHT, KC_BSPC, KC_APP,
   _______,       LCTL(KC_Z),  LCTL(KC_X), LCTL(KC_INS), S(KC_INS), KC_TILD, KC_LEFT,    LCTL(KC_LEFT), LCTL(KC_N), KC_ENT,  KC_HOME, KC_END,  Z_CAPS,  _______,
-  _______,       _______,     _______,    _______,      _______,                                                   _______, _______, _______, _______, _______,
+  _______,       _______,     _______,    _______,      _______,                                                   _______, KC_PGUP, KC_PGDOWN, _______, _______,
                                                                    _______, _______,    _______, _______,
                                                                             _______,    RESET,
                                                           _______, _______, _______,    _______, _______, _______

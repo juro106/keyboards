@@ -61,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_CMD] = LAYOUT_ergodox_pretty(
   // left hand
   LALT(KC_GRV),  S(KC_CAPS),  KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_F6,         KC_F6,      KC_F7,      KC_F8,      KC_F9,     KC_F10,     KC_F11,     KC_F12, 
-  ALT_TAB,       LALT(KC_F4), LCTL(KC_W), LCTL(KC_E), LCTL(KC_R), LCTL(KC_T), LCTL(KC_Y),    LCTL(KC_T), LCTL(KC_Y), LCTL(KC_U), KC_ESC,     LCTL(KC_O), LCTL(KC_P), LCTL(KC_BSLS),
+  ALT_TAB,       LALT(KC_Q),  LCTL(KC_W), LCTL(KC_E), LCTL(KC_R), LCTL(KC_T), LCTL(KC_Y),    LCTL(KC_T), LCTL(KC_Y), LCTL(KC_U), KC_ESC,     LCTL(KC_O), LCTL(KC_P), LCTL(KC_BSLS),
   _______,       LCTL(KC_A),  LCTL(KC_S), LCTL(KC_D), LCTL(KC_F), LCTL(KC_G),                            KC_LEFT,    KC_DOWN,    KC_UP,     KC_RGHT,    KC_BSPC,    KC_DEL,
   _______,       LCTL(KC_Z),  LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), LCTL(KC_B), LCTL(KC_H),    LCTL(KC_B), LCTL(KC_N), KC_ENT,     KC_HOME,   KC_END,     Z_CAPS,     _______,
   _______,       _______,     _______,    _______,    _______,                                                      _______,    LCTL(KC_LBRC),    LCTL(KC_RBRC),    _______,    _______,

@@ -294,7 +294,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
       case 3:
         /* ergodox_right_led_1_on(); */
         /* ergodox_right_led_2_on(); */
-        /* ergodox_right_led_3_on(); */
+        ergodox_right_led_3_on();
         #ifdef RGBLIGHT_COLOR_LAYER_3
           rgblight_setrgb(RGBLIGHT_COLOR_LAYER_3);
         #endif

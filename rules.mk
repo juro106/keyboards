@@ -21,7 +21,7 @@ BOOTLOADER = halfkay
 #
 BOOTMAGIC_ENABLE = no  # Virtual DIP switch configuration
 MOUSEKEY_ENABLE  = no # Mouse keys
-EXTRAKEY_ENABLE  = yes # Audio control and System control
+EXTRAKEY_ENABLE  = no # Audio control and System control
 CONSOLE_ENABLE   = no  # Console for debug
 COMMAND_ENABLE   = yes # Commands for debug and configuration
 CUSTOM_MATRIX    = yes # Custom matrix file for the ErgoDox EZ

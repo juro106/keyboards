@@ -1,6 +1,9 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
 
+#define FORCE_NKRO
+
+
 #define _BASE 0   // default layer
 #define _CMD 1    // Like Control keys
 #define _SYMB 2  // Enter and Shift (Symbol layer)

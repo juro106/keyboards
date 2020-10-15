@@ -7,13 +7,15 @@
 #define _BASE 0   // default layer
 #define _CMD 1    // Like Control keys
 #define _SYMB 2  // Enter and Shift (Symbol layer)
-#define _FN 3   // Fn key
+#define _LFN 3   // Fn key
+#define _RFN 4   // Fn key
 
 enum custom_keycodes {
     BASE = SAFE_RANGE,
     CMD,      // like ctrl or alt
     SYMB,     // symbol
-    FN,       // fn
+    LFN,      // left fn
+    RFN,      // right fn
     KANA,     // kana or 
     ALT_TAB,  // alttab
     Z_ALT,    // for custom alttab
@@ -52,7 +54,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   Z_TAB,    KC_Q,         KC_W,    KC_E,     KC_R,    KC_T,    KC_Y,       KC_T,      KC_Y,    KC_U,    KC_I,    KC_O,     KC_P,      KC_BSLS,
   KC_LCTL,  KC_A,         KC_S,    KC_D,     KC_F,    KC_G,                           KC_H,    KC_J,    KC_K,    KC_L,     KC_SCLN,   KC_QUOT,
   KC_LSFT,  SFT_T(KC_Z),  KC_X,    KC_C,     KC_V,    KC_B,    KC_H,       KC_B,      KC_N,    KC_M,    KC_COMM, KC_DOT,   KC_SLSH,   KC_RSFT,
-  FN,       Z_ALT,        KC_LGUI, Z_ALT,    CMD,                                              KANA,    KC_LBRC, KC_RBRC,  KC_RGUI,   FN,
+  LFN,      Z_ALT,        KC_LGUI, Z_ALT,    CMD,                                              KANA,    KC_LBRC, KC_RBRC,  KC_RGUI,   RFN,
                                                     KC_ESC, KC_PSCR,       KC_PSCR,   TG(3),
                                                              KC_DEL,       KC_ESC,
                                            KC_SPC, KC_LSFT,  KC_ENT,       KC_DEL, KC_BSPC, SYMB
@@ -67,7 +69,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ALT_TAB,       LCTL(KC_Q),  LCTL(KC_W), LCTL(KC_E), LCTL(KC_R), LCTL(KC_T), LCTL(KC_Y),    LCTL(KC_T), LCTL(KC_Y), LCTL(KC_U), KC_ESC,    LCTL(KC_O), KC_LBRC,    KC_RBRC,
   _______,       LCTL(KC_A),  LCTL(KC_S), LCTL(KC_D), LCTL(KC_F), LCTL(KC_G),                            KC_LEFT,    KC_DOWN,    KC_UP,     KC_RGHT,    KC_BSPC,    KC_DEL,
   _______,       LCTL(KC_Z),  LCTL(KC_X), LCTL(KC_C), LCTL(KC_V), LCTL(KC_B), LCTL(KC_H),    LCTL(KC_B), LCTL(KC_N), KC_ENT,     KC_HOME,   KC_END,     C(KC_BSPC), _______,
-  _______,       _______,     _______,    _______,    _______,                                                      _______,    LCTL(KC_LBRC),    LCTL(KC_RBRC),    _______,    _______,
+  _______,       _______,     _______,    _______,    _______,                                            _______,   LCTL(KC_LBRC),    LCTL(KC_RBRC),    _______,   _______,
                                                                   _______,    _______,       _______, _______,
                                                                               _______,       _______,
                                                          _______, _______,    _______,       _______, KC_DEL, S(KC_CAPS)
@@ -87,9 +89,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                         _______, _______,     _______,      _______, _______, _______
 ),
 /* 
- * Keymap 3: Symbol Layer
+ * Keymap 3: Left FN 
  */
-[_FN] = LAYOUT_ergodox_pretty(
+[_LFN] = LAYOUT_ergodox_pretty(
+  // left hand
+  KC_ESC,        KC_F1,       KC_F2,      KC_F3,   KC_F4,   KC_F5,   KC_F6,             KC_F6,         KC_F7,      KC_F8,   KC_F9,   KC_F10,  KC_F11,    KC_F12, 
+  LCTL(KC_TAB),  LALT(KC_F4), LCTL(KC_W), KC_UP,   S(KC_4), S(KC_5), S(KC_6),           S(KC_6),       S(KC_7),    S(KC_8), S(KC_9), S(KC_0), S(KC_LBRC),S(KC_RBRC),
+  _______,       KC_HOME,     KC_LEFT,    KC_DOWN, KC_RGHT, KC_GRV,                                    KC_LEFT,    KC_DOWN, KC_UP,   KC_RGHT, KC_LEFT,   KC_RGHT,
+  _______,       LCTL(KC_Z),  LCTL(KC_X), LCTL(KC_INS), S(KC_INS), KC_TILD, KC_LEFT,    LCTL(KC_LEFT), LCTL(KC_N), KC_ENT,  S(KC_HOME), S(KC_END), KC_DOWN,   _______,
+  _______,       _______,     _______,    _______,      _______,                                                   _______, KC_PGUP, KC_PGDOWN, _______, _______,
+                                                                   _______, _______,    _______, _______,
+                                                                            _______,    RESET,
+                                                          _______, _______, _______,    _______, _______, _______
+),
+/* 
+ * Keymap 4: Right FN 
+ */
+[_RFN] = LAYOUT_ergodox_pretty(
   // left hand
   KC_ESC,        KC_F1,       KC_F2,      KC_F3,   KC_F4,   KC_F5,   KC_F6,             KC_F6,         KC_F7,      KC_F8,   KC_F9,   KC_F10,  KC_F11,    KC_F12, 
   LCTL(KC_TAB),  LALT(KC_F4), LCTL(KC_W), KC_UP,   S(KC_4), S(KC_5), S(KC_6),           S(KC_6),       S(KC_7),    S(KC_8), S(KC_9), S(KC_0), S(KC_INS), KC_UP,
@@ -152,11 +168,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
             return false;
             break;
-        case FN:
+        case LFN:
             if (record->event.pressed) {
-                layer_on(_FN);
+                layer_on(_LFN);
             } else {
-                layer_off(_FN);
+                layer_off(_LFN);
+            }
+            return false;
+            break;
+        case RFN:
+            if (record->event.pressed) {
+                layer_on(_RFN);
+            } else {
+                layer_off(_RFN);
             }
             return false;
             break;

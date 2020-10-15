@@ -55,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_LCTL,  KC_A,         KC_S,    KC_D,     KC_F,    KC_G,                           KC_H,    KC_J,    KC_K,    KC_L,     KC_SCLN,   KC_QUOT,
   KC_LSFT,  SFT_T(KC_Z),  KC_X,    KC_C,     KC_V,    KC_B,    KC_H,       KC_B,      KC_N,    KC_M,    KC_COMM, KC_DOT,   KC_SLSH,   KC_RSFT,
   LFN,      Z_ALT,        KC_LGUI, Z_ALT,    CMD,                                              KANA,    KC_LBRC, KC_RBRC,  KC_RGUI,   RFN,
-                                                    KC_ESC, KC_PSCR,       KC_PSCR,   TG(3),
+                                                    KC_ESC, KC_PSCR,       KC_PSCR,   TG(4),
                                                              KC_DEL,       KC_ESC,
                                            KC_SPC, KC_LSFT,  KC_ENT,       KC_DEL, KC_BSPC, SYMB
 ),
@@ -95,11 +95,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // left hand
   KC_ESC,        KC_F1,       KC_F2,      KC_F3,   KC_F4,   KC_F5,   KC_F6,             KC_F6,         KC_F7,      KC_F8,   KC_F9,   KC_F10,  KC_F11,    KC_F12, 
   LCTL(KC_TAB),  LALT(KC_F4), LCTL(KC_W), KC_UP,   S(KC_4), S(KC_5), S(KC_6),           S(KC_6),       S(KC_7),    S(KC_8), S(KC_9), S(KC_0), S(KC_LBRC),S(KC_RBRC),
-  _______,       KC_HOME,     KC_LEFT,    KC_DOWN, KC_RGHT, KC_GRV,                                    KC_LEFT,    KC_DOWN, KC_UP,   KC_RGHT, KC_LEFT,   KC_RGHT,
-  _______,       LCTL(KC_Z),  LCTL(KC_X), LCTL(KC_INS), S(KC_INS), KC_TILD, KC_LEFT,    LCTL(KC_LEFT), LCTL(KC_N), KC_ENT,  S(KC_HOME), S(KC_END), KC_DOWN,   _______,
+  _______,       KC_HOME,     KC_LEFT,    KC_DOWN, KC_RGHT, KC_GRV,                                    KC_LEFT,    KC_DOWN, KC_UP,   KC_RGHT, KC_BSPC,   KC_APP,
+  _______,       LCTL(KC_Z),  LCTL(KC_X), LCTL(KC_INS), S(KC_INS), KC_TILD, KC_LEFT,    LCTL(KC_LEFT), LCTL(KC_N), KC_ENT,  S(KC_HOME), S(KC_END), S(KC_SLSH),   _______,
   _______,       _______,     _______,    _______,      _______,                                                   _______, KC_PGUP, KC_PGDOWN, _______, _______,
                                                                    _______, _______,    _______, _______,
-                                                                            _______,    RESET,
+                                                                            _______,    _______,
                                                           _______, _______, _______,    _______, _______, _______
 ),
 /* 
